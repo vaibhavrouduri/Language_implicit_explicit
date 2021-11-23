@@ -32,9 +32,12 @@ meta_simdiff <- metadata %>%
 meta_simdiff_data <- meta_simdiff%>%
   filter(ValenceList == 9)
 
+view(meta_simdiff)
 
 meta_simdiff %>%
-  ggplot(aes(ValenceList, eff)) + geom_point() + geom_point(data = meta_simdiff_data, aes(ValenceList, eff), color = 'red', size = 3) + theme_bw()
+  ggplot(aes(ValenceList, eff)) + geom_point() + 
+  geom_point(data = meta_simdiff_data, aes(ValenceList, eff), color = 'red', size = 3) + 
+  theme_bw() + scale_x_continuous(breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9), label = c("Valenced 1", "Valenced 2", "Valenced 3", "Valenced 4", "Valenced 5", "Valenced 6", "Valenced 7", "Valenced 8", "Meta-Analytic Estimate"))
 
 meta_absdrink <- metadata %>%
   filter(IAT == 'Abstain/Drink')
@@ -43,5 +46,7 @@ meta_absdrink_data <- meta_absdrink%>%
   filter(ValenceList == 9)
 
 meta_absdrink %>%
-  ggplot(aes(ValenceList, eff)) + geom_point() + geom_point(data = meta_absdrink_data, aes(ValenceList, eff), color = 'red', size = 3) + theme_bw()
+  ggplot(aes(ValenceList, eff)) + geom_point() + 
+  geom_point(data = meta_absdrink_data, aes(ValenceList, eff), color = 'red', size = 3) + 
+  theme_bw() + scale_x_continuous(breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9), label = c("Valenced 1", "Valenced 2", "Valenced 3", "Valenced 4", "Valenced 5", "Valenced 6", "Valenced 7", "Valenced 8", "Meta-Analytic Estimate"))
 
