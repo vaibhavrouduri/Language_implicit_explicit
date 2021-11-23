@@ -1,10 +1,8 @@
-
 if(!require("meta")){install.packages("meta", dependencies = TRUE); require("meta")}
-if(!require("scales")){install.packages("scales", dependencies = TRUE); require("scales")}
-if(!require("car")){install.packages("car", dependencies = TRUE); require("car")}
+#if(!require("scales")){install.packages("scales", dependencies = TRUE); require("scales")}
+#if(!require("car")){install.packages("car", dependencies = TRUE); require("car")}
 if(!require("dplyr")){install.packages("dplyr", dependencies = TRUE); require("dplyr")}
 if(!require("ggplot2")){install.packages("ggplot2", dependencies = TRUE); require("ggplot2")}
-if(!require("ggrepel")){install.packages("ggrepel", dependencies = TRUE); require("ggrepel")}
 if(!require("tidyverse")){install.packages("tidyverse", dependencies = TRUE); require("tidyverse")}
 library(readxl)
 
@@ -21,18 +19,13 @@ summary(meta.simdiff)
 meta.absdrink <- metagen(TE = metaeff.absdrink, seTE = metaeff.se.absdrink, sm = "MD")
 summary(meta.absdrink)
 
-
 metadata$ValenceList <-  extract_numeric(metadata$`Embedding+VL`)
-view(metadata)
 
 meta_simdiff <- metadata %>%
   filter(IAT == 'Simple/Difficult')
 
-
 meta_simdiff_data <- meta_simdiff%>%
   filter(ValenceList == 9)
-
-view(meta_simdiff)
 
 meta_simdiff %>%
   ggplot(aes(ValenceList, eff)) + geom_point() + 
